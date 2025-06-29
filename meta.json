@@ -1,0 +1,12 @@
+{
+  "name": "Mobile Uploader",
+  "description": "Secure file upload API for mobile applications using Jellyfin authentication with dynamic library access and folder management",
+  "overview": "Upload files to Jellyfin libraries through a mobile-optimized REST API. Users authenticate with their Jellyfin accounts and can upload to any library they have access to. Features include automatic library discovery, folder browsing and creation, and comprehensive security validation.",
+  "owner": "Community",
+  "category": "General",
+  "version": "1.0.0.0",
+  "changelog": "Release with Jellyfin user authentication, mobile-optimized API endpoints, and dynamic library management",
+  "targetAbi": "10.8.0.0",
+  "framework": "net6.0",
+  "timestamp": "2025-06-28T21:54:48Z"
+}
