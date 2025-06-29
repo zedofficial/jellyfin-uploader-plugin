@@ -12,7 +12,7 @@
         "changelog": "Release with Jellyfin user authentication, mobile-optimized API endpoints, and dynamic library management",
         "targetAbi": "10.10.7.0",
         "sourceUrl": "https://github.com/zedofficial/jellyfin-uploader-plugin/releases/download/v1.0.0/Jellyfin.Plugin.Uploader.zip",
-        "checksum": "808ba143dc4064805ae0d9a425715b137dda3e19388aa9eeceb1ec7fb7f85454",
+        "checksum": "70a60c0255e3d310d66575497846755b4d10a4571fe678e13202a0f4bed0267f",
         "timestamp": "2025-06-28T21:54:48Z"
       }
     ],
