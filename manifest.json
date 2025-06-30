@@ -13,7 +13,7 @@
         "targetAbi": "10.10.7.0",
         "framework": "net8.0",
         "sourceUrl": "https://github.com/zedofficial/jellyfin-uploader-plugin/releases/download/v1.0.0/Jellyfin.Plugin.Uploader.zip",
-        "checksum": "A2076215A8DD0B921C08BC7F32D898D4EF3D35A2EA0C54BE0B948CDCFFB947DA",
+        "checksum": "a2076215a8dd0b921c08bc7f32d898d4ef3d35a2ea0c54be0b948cdcffb947da",
         "timestamp": "2025-06-29T00:20:00Z"
       }
     ],
