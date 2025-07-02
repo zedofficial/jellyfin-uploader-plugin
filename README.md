@@ -2,65 +2,95 @@
 
 A secure, mobile-friendly Jellyfin plugin that provides a REST API for uploading files directly to your Jellyfin libraries from mobile applications.
 
+> 🚧 **Note:** The API is currently under active development and will be **exclusively accessible to our official mobile app**.  
+> Unauthorized third-party access will be blocked through API key, token, and app package validation.
+
+---
+
 ## Features
 
-🔐 **Jellyfin Authentication** - Uses existing Jellyfin user accounts and permissions
-📱 **Mobile-Optimized API** - RESTful endpoints designed for mobile app integration  
-📁 **Dynamic Library Access** - Upload to any Jellyfin library the user has access to
-🛡️ **Multi-Layer Security** - API key, security token, and app package validation
-📂 **Folder Management** - Browse, create, and organize folders within libraries
-🎯 **File Type Control** - Configurable allowed file extensions
-📊 **Upload Progress** - Real-time upload status and progress tracking
+- 🔐 **Jellyfin Authentication** – Uses existing Jellyfin user accounts and permissions  
+- 📱 **Mobile-Optimized API** – RESTful endpoints tailored for mobile app integration  
+- 📁 **Dynamic Library Access** – Upload to any Jellyfin library the user has permission for  
+- 🛡️ **Multi-Layer Security** – API key, security token, and app package enforcement  
+- 📂 **Folder Management** – Browse, create, and organize folders  
+- 🎯 **File Type Control** – Configurable file extension restrictions  
+- 📊 **Upload Progress** – Real-time progress feedback during uploads  
+
+---
+
+## Development Roadmap
+
+The plugin and API are actively being developed with the following goals:
+
+- 🔒 **Exclusive App Lockdown** – API access will be restricted to our official mobile app using app package and token validation.  
+- 🚀 **Stable v1 API** – Core endpoints for login, library browsing, folder control, and file uploads.  
+- 🔄 **Planned v2 API** – Future features include background upload queueing, media tagging, and automatic media processing.  
+
+This ensures a secure and seamless experience for verified app users only.
+
+---
 
 ## Quick Start
 
-1. **Install** the plugin in Jellyfin
-2. **Configure** API credentials in plugin settings
-3. **Integrate** with your mobile app using the provided API
-4. **Users log in** with their existing Jellyfin accounts
+1. **Install** the plugin in Jellyfin  
+2. **Configure** API credentials and app restrictions in plugin settings  
+3. **Integrate** with your mobile app using the provided REST API  
+4. **Log in** with your existing Jellyfin account to begin uploading  
+
+---
 
 ## API Endpoints
 
-### Authentication
-- `POST /api/mobile-uploader/login` - Login with Jellyfin credentials
-- `POST /api/mobile-uploader/logout` - Logout and invalidate session  
-- `GET /api/mobile-uploader/verify` - Verify current session
+### 🔐 Authentication
 
-### Library Management
-- `GET /api/mobile-uploader/libraries` - List accessible libraries
-- `GET /api/mobile-uploader/folders` - Browse folders within a library
-- `POST /api/mobile-uploader/create-folder` - Create new folders
+- `POST /api/mobile-uploader/login` – Log in with Jellyfin credentials  
+- `POST /api/mobile-uploader/logout` – Log out and invalidate the session  
+- `GET /api/mobile-uploader/verify` – Verify the current session and token  
 
-### File Upload
-- `POST /api/mobile-uploader/upload` - Upload files to libraries
+### 📁 Library & Folder Management
+
+- `GET /api/mobile-uploader/libraries` – List accessible Jellyfin libraries  
+- `GET /api/mobile-uploader/folders` – Browse folders in a selected library  
+- `POST /api/mobile-uploader/create-folder` – Create new folders in a library  
+
+### ⬆️ File Upload
+
+- `POST /api/mobile-uploader/upload` – Upload a file to a specified library/folder  
+
+---
 
 ## Security Features
 
-- **API Key Authentication** - Prevents unauthorized access to the API
-- **Security Token Validation** - Additional security layer with rotating tokens
-- **App Package Verification** - Ensures only your mobile app can access the API
-- **Jellyfin User Permissions** - Respects existing Jellyfin library access controls
-- **Session Management** - Secure session tokens with automatic expiration
+- 🔑 **API Key Authentication** – Only authorized apps can access the API  
+- 🔐 **Security Token Validation** – Rotating token system for added security  
+- 📦 **App Package Verification** – Enforces access from your official mobile app  
+- 👤 **Jellyfin User Permissions** – Honors Jellyfin access control for each user  
+- ⏱️ **Session Management** – Auto-expiring secure session tokens  
 
-## Configuration
+---
 
-The plugin provides a simple configuration interface in Jellyfin:
+## Plugin Configuration
+
+Inside Jellyfin, go to **Admin → Plugins → Mobile Uploader** and configure:
 
 ```
-✓ API Key: Unique identifier for your mobile app
-✓ Security Token: Additional security validation
-✓ App Package: Your mobile app's package identifier
-✓ File Size Limits: Maximum upload size per file
-✓ File Type Restrictions: Allowed file extensions
-✓ Folder Creation: Enable/disable dynamic folder creation
+✓ API Key: Unique identifier for your mobile app  
+✓ Security Token: Additional token required for access  
+✓ App Package: Official app identifier to whitelist  
+✓ File Size Limits: Maximum upload size per file  
+✓ File Type Restrictions: Define allowed file extensions  
+✓ Folder Creation: Enable or disable user-created folders  
 ```
+
+---
 
 ## Mobile App Integration
 
-Perfect for Flutter, React Native, or native mobile apps:
+Supports integration with **Flutter**, **React Native**, and **native Android/iOS** clients:
 
 ```javascript
-// Login with Jellyfin credentials
+// Example: Login Request
 const loginResponse = await fetch('/api/mobile-uploader/login', {
     method: 'POST',
     headers: {
@@ -72,60 +102,80 @@ const loginResponse = await fetch('/api/mobile-uploader/login', {
     body: JSON.stringify({ username, password })
 });
 
-// Upload files using session token
+// Example: Upload File
 const uploadResponse = await fetch('/api/mobile-uploader/upload?libraryId=123', {
     method: 'POST',
     headers: {
         'Authorization': `Bearer ${sessionToken}`,
-        // ... other security headers
+        // additional headers as needed
     },
     body: formData
 });
 ```
 
+---
+
 ## Use Cases
 
-- **Photo backup** from mobile devices to Jellyfin photo libraries
-- **Video uploads** for personal media collections  
-- **Document sharing** through Jellyfin's web interface
-- **Music uploads** for personal audio libraries
-- **Automatic syncing** of mobile content to home media server
-
-## Benefits Over Alternatives
-
-- **Native Jellyfin Integration** - No separate user management needed
-- **Secure API Design** - Multiple layers of authentication and validation
-- **Flexible Library Support** - Works with any Jellyfin library type
-- **Mobile-First** - Designed specifically for mobile app development
-- **Permission Aware** - Respects existing Jellyfin user access controls
-
-## Installation
-
-1. Download the plugin files to your Jellyfin plugins directory
-2. Restart Jellyfin server
-3. Navigate to Admin → Plugins → Mobile Uploader
-4. Configure your API credentials and upload settings
-5. Integrate with your mobile application
-
-## Requirements
-
-- Jellyfin Server 10.8.0 or higher
-- .NET 6.0 runtime
-- Mobile app with HTTP client capabilities
-- Valid Jellyfin user accounts for uploaders
-
-## Documentation
-
-- [Configuration Guide](CONFIGURATION.md) - Detailed setup instructions
-- [API Reference](CONFIGURATION.md#api-endpoints) - Complete endpoint documentation  
-- [Security Best Practices](CONFIGURATION.md#security-best-practices) - Production deployment guide
-
-## Support
-
-- Report issues through Jellyfin plugin channels
-- Check Jellyfin logs for detailed error information
-- Verify API credentials match your configuration exactly
+- 📷 **Photo Backup** – Sync mobile photos to Jellyfin libraries  
+- 🎥 **Video Uploads** – Upload personal videos directly from your device  
+- 📄 **Document Sharing** – Store PDFs or other docs into Jellyfin  
+- 🎵 **Music Uploads** – Add new music files to your collection  
+- 🔄 **Auto-Sync** – Automatically sync files to your media server  
 
 ---
 
-**Perfect for**: Mobile app developers wanting secure, user-friendly file upload functionality for Jellyfin servers without complex setup or separate authentication systems.
+## Benefits Over Alternatives
+
+- ✅ **Native Jellyfin Integration** – No separate account system required  
+- 🔐 **Multiple Security Layers** – API key, token, and app checks  
+- 📱 **Mobile-First Experience** – Designed with mobile in mind  
+- 🧠 **Permission-Aware** – Fully respects Jellyfin user and library access rules  
+- 🔧 **Flexible Library Support** – Works with Movies, TV Shows, Music, Photos, and more  
+
+---
+
+## Installation
+
+1. Download the latest `.jpl` plugin release  
+2. Place it in your Jellyfin server's `plugins` directory  
+3. Restart Jellyfin  
+4. Navigate to **Admin → Plugins → Mobile Uploader**  
+5. Configure your credentials and usage options  
+6. Integrate your mobile app using the API  
+
+---
+
+## Requirements
+
+- Jellyfin Server **v10.8.0+**  
+- .NET 6.0 Runtime  
+- Mobile app with HTTP client support  
+- Valid Jellyfin user account  
+
+---
+
+## Documentation
+
+- [Configuration Guide](CONFIGURATION.md) – How to set up the plugin  
+- [API Reference](CONFIGURATION.md#api-endpoints) – All available endpoints  
+- [Security Practices](CONFIGURATION.md#security-best-practices) – How to deploy securely  
+
+---
+
+## Support
+
+- 🛠️ Open issues via GitHub if you're an approved app partner  
+- 🧪 Check Jellyfin logs for runtime errors  
+- ✅ Verify plugin configuration matches your app integration  
+
+---
+
+## License
+
+This plugin is provided as-is for exclusive use with our official mobile app.  
+Distribution or reuse outside of authorized applications is **not permitted**.
+
+---
+
+**Built for**: Jellyfin users who want seamless, secure media uploads from their mobile devices — with native login, folder support, and real-time sync.
