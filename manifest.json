@@ -41,7 +41,7 @@
         "framework": "net8.0",
         "sourceUrl": "https://github.com/zedofficial/jellyfin-uploader-plugin/releases/download/v1.2.2/Jellyfin.Plugin.Uploader.zip",
         "checksum": "10a8c19120f3a7aa1a2206c4f612106c",
-        "timestamp": "2026-05-24T00:00:00Z"
+        "timestamp": "2026-05-24T01:52:02Z"
       }
     ],
     "imageUrl": "https://raw.githubusercontent.com/zedofficial/jellyfin-uploader-plugin/main/fileuploader.png",
