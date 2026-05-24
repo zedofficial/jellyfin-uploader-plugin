@@ -33,6 +33,15 @@
         "sourceUrl": "https://github.com/zedofficial/jellyfin-uploader-plugin/releases/download/v1.2.1/Jellyfin.Plugin.Uploader.zip",
         "checksum": "2d918e424f678d965ac8dd81f485f970",
         "timestamp": "2026-05-24T00:00:00Z"
+      },
+      {
+        "version": "1.2.2.0",
+        "changelog": "Hardens config UI: removes the free-tier limits and premium-bypass toggles that could let server admins unlock unpaid premium features. Cleans up the user mappings section with clearer auto-managed messaging. Existing settings preserved on upgrade.",
+        "targetAbi": "10.10.7.0",
+        "framework": "net8.0",
+        "sourceUrl": "https://github.com/zedofficial/jellyfin-uploader-plugin/releases/download/v1.2.2/Jellyfin.Plugin.Uploader.zip",
+        "checksum": "2aa341752b3cd521756d074f9b7901ec",
+        "timestamp": "2026-05-24T00:00:00Z"
       }
     ],
     "imageUrl": "https://raw.githubusercontent.com/zedofficial/jellyfin-uploader-plugin/main/fileuploader.png",
