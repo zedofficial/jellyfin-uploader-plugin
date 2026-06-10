@@ -60,6 +60,15 @@
         "sourceUrl": "https://github.com/zedofficial/jellyfin-uploader-plugin/releases/download/v1.2.5/Jellyfin.Plugin.Uploader.zip",
         "checksum": "c32449f5ad76d23143143597c6beeb37",
         "timestamp": "2026-05-27T05:43:01Z"
+      },
+      {
+        "version": "1.2.6.0",
+        "changelog": "Multi-path library support across folder CRUD. Libraries mapped to more than one filesystem path (e.g. TV Shows pointing at /media/TV AND /external/TV) now surface subfolders from every location instead of just the first one returned by Jellyfin's virtual mount. Create / rename / delete were rewritten to resolve the right physical root before touching disk, so operations land next to their siblings even when they live under a non-primary path.",
+        "targetAbi": "10.10.7.0",
+        "framework": "net8.0",
+        "sourceUrl": "https://github.com/zedofficial/jellyfin-uploader-plugin/releases/download/v1.2.6/Jellyfin.Plugin.Uploader.zip",
+        "checksum": "55f03b03e0cc3e9c4ff50f77f52eef3c",
+        "timestamp": "2026-06-01T22:00:00Z"
       }
     ],
     "imageUrl": "https://raw.githubusercontent.com/zedofficial/jellyfin-uploader-plugin/main/fileuploader.png",
